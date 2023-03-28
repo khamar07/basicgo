@@ -1,0 +1,29 @@
+ Golang that demonstrates the difference between pass by value and pass by reference:
+ package main
+
+import "fmt"
+
+func main() {
+    // Pass by value example
+    x := 5
+    fmt.Println("Before calling passByValue(), x =", x)
+    passByValue(x)
+    fmt.Println("After calling passByValue(), x =", x)
+
+    // Pass by reference example
+    y := 5
+    fmt.Println("Before calling passByReference(), y =", y)
+    passByReference(&y)
+    fmt.Println("After calling passByReference(), y =", y)
+}
+
+func passByValue(a int) {
+    a = 10
+}
+
+func passByReference(b *int) {
+    *b = 10
+}
+In the main() function, we first demonstrate pass by value by declaring a variable x and passing it to a function passByValue(). Inside the passByValue() function, we assign the value 10 to the parameter a. However, when we print the value of x after calling passByValue(), we see that it is still 5. This is because passByValue() received a copy of x, and any changes made to the parameter a only affect the copy, not the original variable x.
+
+Next, we demonstrate pass by reference by declaring a variable y and passing a pointer to it to a function passByReference(). Inside the passByReference() function, we use the * operator to access the value pointed to by the parameter b, and assign the value 10 to it. When we print the value of y after calling passByReference(), we see that it is now 10. This is because passByReference() received a pointer to y, and any changes made to the value pointed to by the parameter b affect the original variable y.
