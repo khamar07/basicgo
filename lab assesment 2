@@ -1,0 +1,15 @@
+collection.Find(bson.M{"age": bson.M{"$eq": 30}})
+
+
+
+collection.Find(bson.M{"status": bson.M{"$in": []string{"active", "inactive"}}})
+
+
+collection.Find(bson.M{"name": bson.M{"$regex": "john", "$options": "i"}})
+
+
+collection.Find(bson.M{"status": bson.M{"$in": []string{"active", "inactive"}}})
+
+
+
+collection.Find(bson.M{"address": bson.M{"$exists": true}})
